@@ -2,8 +2,10 @@ import { List } from "@chakra-ui/react";
 
 import { TodoTitle } from "./TodoTitle";
 import { TodoItem } from "./TodoItem";
+import type { FormatListItem } from "../types/todo"
+import { FC } from "react";
 
-export const TodoList = ({
+export const TodoList: FC<FormatListItem> = ({
   title,
   as,
   fontSize,
@@ -17,7 +19,7 @@ export const TodoList = ({
         <>
           <TodoTitle title={title} as={as} fontSize={fontSize} mt="12" />
           <List w="full">
-            {todoList.map((todo) => (
+            {todoList.map((todo: any) => (
               <TodoItem
                 todo={todo}
                 key={todo.id}

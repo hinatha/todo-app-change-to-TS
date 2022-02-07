@@ -1,6 +1,8 @@
 import { Textarea, Button } from "@chakra-ui/react";
+import type { AddFormat } from "../types/todo"
+import { FC } from "react";
 
-export const TodoAdd = ({
+export const TodoAdd: FC<AddFormat> = ({
   placeholder,
   leftIcon,
   buttonText,

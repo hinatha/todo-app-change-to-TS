@@ -9,7 +9,7 @@ import { TodoTitle } from "./TodoTitle";
 import { TodoAdd } from "./TodoAdd";
 import { TodoList } from "./TodoList";
 
-function App() {
+function App(){
   const {
     todoList,
     addTodoListItem,
@@ -17,7 +17,7 @@ function App() {
     deleteTodoListItem
   } = useTodo();
 
-  const inputEl = useRef(null);
+  const inputEl: any = useRef(null);
 
   const handleAddTodoListItem = () => {
     if (inputEl.current.value === "") return;

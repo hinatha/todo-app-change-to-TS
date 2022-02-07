@@ -1,7 +1,9 @@
 import { ListItem, Text, Flex, Button, IconButton } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
+import type { FC } from "react"
+import type { TodoListItem } from "../types/todo"
 
-export const TodoItem = ({ todo, toggleTodoListItemStatus, deleteTodoListItem }) => {
+export const TodoItem: FC<TodoListItem> = ({ todo, toggleTodoListItemStatus, deleteTodoListItem }) => {
   const handleToggleTodoListItemStatus = () => toggleTodoListItemStatus(todo.id, todo.done);
   const handleDeleteTodoListItem = () => deleteTodoListItem(todo.id);
 
