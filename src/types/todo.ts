@@ -1,35 +1,45 @@
 export type Todos = {
-    id: any;
-    content: any;
-    done: any;
+    id: number;
+    content: string;
+    done: boolean;
 };
 
 export type TodoListItem = {
-    todo: any;
+    todo: {
+        id: number;
+        content: string;
+        done: boolean;
+    };
     toggleTodoListItemStatus: any;
     deleteTodoListItem: any;
 };
 
 export type FormatProps = {
-    title: any;
+    title: string;
     as: any;
-    fontSize: any;
-    mt?: any;
+    fontSize: {
+        base: string;
+        md: string;
+    };
+    mt?: string;
 };
   
 export type FormatListItem = {
-    title: any;
-    as: any;
-    fontSize: any;
-    todoList: any;
+    title: string;
+    as: string;
+    fontSize: {
+        base: string;
+        md: string;
+    };
+    todoList: Todos[];
     toggleTodoListItemStatus: any;
     deleteTodoListItem: any;
 };
 
 export type AddFormat = {
-    placeholder: any;
+    placeholder: string;
     leftIcon: any;
-    buttonText: any;
-    inputEl: any;
+    buttonText: string;
+    inputEl: string;
     handleAddTodoListItem: any;
 };
