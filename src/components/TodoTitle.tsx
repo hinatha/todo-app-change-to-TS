@@ -1,9 +1,8 @@
-import React, { memo } from "react";
-import type { FC } from "react"
+import { memo } from "react";
 import { Heading } from "@chakra-ui/react";
-import type { FormatProps } from "../types/todo"
+import { IFormatProps } from "../types/todo"
 
-export const TodoTitle: FC<FormatProps> = memo(({ title, as, fontSize, mt }) => {
+export const TodoTitle = memo(({ title, as, fontSize, mt }: IFormatProps) => {
   return (
     <Heading mt={mt} as={as} fontSize={fontSize} w="full">
       {title}

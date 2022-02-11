@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import { Container } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";

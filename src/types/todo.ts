@@ -1,20 +1,22 @@
-export type Todos = {
-    id: number;
+export interface ITodos {
+    id: string;
     content: string;
     done: boolean;
-};
+}
 
-export type TodoListItem = {
-    todo: {
-        id: number;
-        content: string;
-        done: boolean;
-    };
-    toggleTodoListItemStatus: any;
-    deleteTodoListItem: any;
-};
+export interface ITodoup {
+    id?: string;
+    content?: string;
+    done: boolean;
+}
 
-export type FormatProps = {
+export interface ITodoListItem {
+    todo: ITodos
+    toggleTodoListItemStatus: (arg1: string, arg2: boolean) => void;
+    deleteTodoListItem: (arg1: string) => void;
+}
+
+export interface IFormatProps {
     title: string;
     as: any;
     fontSize: {
@@ -22,24 +24,18 @@ export type FormatProps = {
         md: string;
     };
     mt?: string;
-};
+}
   
-export type FormatListItem = {
-    title: string;
-    as: string;
-    fontSize: {
-        base: string;
-        md: string;
-    };
-    todoList: Todos[];
-    toggleTodoListItemStatus: any;
-    deleteTodoListItem: any;
-};
+export interface IFormatListItem {
+    todoList: Array<ITodos>;
+    toggleTodoListItemStatus: (arg1: string, arg2: boolean) => void;
+    deleteTodoListItem: (arg1: string) => void;
+}
 
-export type AddFormat = {
+export interface IAddFormat {
     placeholder: string;
     leftIcon: any;
     buttonText: string;
     inputEl: string;
-    handleAddTodoListItem: any;
-};
+    handleAddTodoListItem: () => void;
+}

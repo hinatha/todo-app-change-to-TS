@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ITodos, ITodoup } from "../types/todo"
 
 const todoDataUrl = "http://localhost:3100/todos";
 export const getAllTodosData = async () => {
@@ -6,15 +7,15 @@ export const getAllTodosData = async () => {
   return response.data;
 };
 
-export const addTodoData = async (todo: any) => {
+export const addTodoData = async (todo: ITodos) => {
   const response = await axios.post(todoDataUrl, todo);
   return response.data;
 };
-export const deleteTodoData = async (id: number) => {
+export const deleteTodoData = async (id: string) => {
   await axios.delete(`${todoDataUrl}/${id}`);
   return id;
 };
-export const updateTodoData = async (id: number, todo: any) => {
+export const updateTodoData = async (id: string, todo: ITodoup) => {
   const response = await axios.put(`${todoDataUrl}/${id}`, todo);
   return response.data;
 };

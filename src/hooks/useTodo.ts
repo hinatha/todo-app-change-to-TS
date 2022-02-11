@@ -4,12 +4,12 @@ import { ulid } from "ulid";
 
 import * as todoData from "../apis/todos";
 
-import type { Todos } from "../types/todo"
+import { ITodos } from "../types/todo"
 
 
 export const useTodo = () => {
 
-  const [todoList, setTodoList] = useState<Todos[]>([]);
+  const [todoList, setTodoList] = useState<Array<ITodos>>([]);
 
   useEffect(() => {
     todoData.getAllTodosData().then((todo) => {
@@ -17,7 +17,7 @@ export const useTodo = () => {
     });
   }, []);
 
-  const toggleTodoListItemStatus = (id: number, done: boolean): void => {
+  const toggleTodoListItemStatus = (id: string, done: boolean): void => {
     const todoItem = todoList.find((item) => item.id === id);
     const newTodoItem = { ...todoItem, done: !done };
     todoData.updateTodoData(id, newTodoItem).then((updatedTodo) => {
@@ -28,7 +28,7 @@ export const useTodo = () => {
     });
   };
   const addTodoListItem = (todoContent: string) => {
-    const newTodoItem = {
+    const newTodoItem: ITodos = {
       content: todoContent,
       id: ulid(),
       done: false
@@ -37,7 +37,7 @@ export const useTodo = () => {
       setTodoList([addTodo, ...todoList]);
     });
   };
-  const deleteTodoListItem = (id: number) => {
+  const deleteTodoListItem = (id: string) => {
     todoData.deleteTodoData(id).then((deleteListItemId) => {
       const newTodoList = todoList.filter(
         (item) => item.id !== deleteListItemId
